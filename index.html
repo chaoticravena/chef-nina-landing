@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef Nina — Restaurant magic, weeknight simple.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="hdr-inner cn-pad">
+    <a href="#top" class="logo-link">
+      <img src="assets/logo-chef-nina.png" alt="Chef Nina" class="logo-img">
+    </a>
+    <nav>
+      <a href="#books" data-t="navBooks"></a>
+      <a href="#about" data-t="navAbout"></a>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-pt" onclick="setLang('pt')">PT</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section id="top" class="hero cn-pad cn-hero">
+  <div class="hero-copy">
+    <span class="kicker" data-t="kicker"></span>
+    <h1 class="cn-h1" data-t="tagline"></h1>
+    <p class="hero-sub" data-t="heroSub"></p>
+    <a href="#books" class="btn" data-t="cta"></a>
+  </div>
+  <div class="hero-art">
+    <div class="blob"></div>
+    <img src="assets/nina-mascot.png" alt="Chef Nina mascot illustration" class="mascot">
+  </div>
+</section>
+
+<div class="doodle-row cn-pad">
+  <img src="assets/doodle-whisk.png" alt="">
+  <span class="dotted-line"></span>
+  <img src="assets/doodle-lemon.png" alt="">
+  <span class="dotted-line"></span>
+  <img src="assets/doodle-herb.png" alt="">
+</div>
+
+<section id="books" class="cn-pad section-books">
+  <h2 class="section-title" data-t="booksTitle"></h2>
+  <p class="section-sub" data-t="booksSub"></p>
+  <div class="cn-books" id="books-grid"></div>
+</section>
+
+<section class="cn-pad">
+  <div class="bundle cn-bundle">
+    <img src="assets/bundle-stack.png" alt="All three Chef Nina ebooks" class="bundle-img">
+    <div class="bundle-copy">
+      <span class="badge" data-t="badge"></span>
+      <h2 data-t="bundleTitle"></h2>
+      <p data-t="bundleBody"></p>
+      <div class="price-row">
+        <span class="price-now" id="bundle-price"></span>
+        <span class="price-was" id="bundle-was"></span>
+      </div>
+      <a href="https://chefnina.gumroad.com/l/bundle" target="_blank" rel="noopener" class="btn" data-t="bundleCta"></a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="cn-pad cn-about about">
+  <div class="about-art">
+    <div class="blob blob-small"></div>
+    <img src="assets/nina-about.png" alt="Chef Nina waving" class="about-img">
+  </div>
+  <div class="about-copy">
+    <h2 data-t="aboutTitle"></h2>
+    <p data-t="aboutBody"></p>
+    <p data-t="aboutBody2"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner cn-pad">
+    <div class="footer-brand">
+      <img src="assets/doodle-pepper.png" alt="">
+      <span>Chef Nina</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://facebook.com/chefnina" target="_blank" rel="noopener">Facebook</a>
+      <a href="mailto:hello@chefnina.com">hello@chefnina.com</a>
+    </div>
+    <span class="copyright" data-t="copyright"></span>
+  </div>
+</footer>
+
+<script>
+const COPY = {
+  en: {
+    navBooks: "Ebooks", navAbout: "About", kicker: "Recipe ebooks",
+    tagline: "Restaurant magic, weeknight simple.",
+    heroSub: "Hand-tested recipes that turn everyday ingredients into something worth sitting down for. No fancy equipment, no long shopping lists.",
+    cta: "Get the ebook",
+    booksTitle: "Pick your kitchen", booksSub: "Three ebooks, each built around a different week.",
+    buy: "Buy now",
+    badge: "Save 30%", bundleTitle: "All three books, one bundle",
+    bundleBody: "Desserts, Diet-Friendly and High-Protein together — every recipe, every shopping list, one download.",
+    bundleCta: "Get the bundle",
+    aboutTitle: "Hi, I'm Nina",
+    aboutBody: "I cooked in restaurant kitchens for twelve years, then spent the next few teaching friends how to get the same flavour at home with a single pan and half the time.",
+    aboutBody2: "Every recipe in these books has been made in a normal kitchen, on a normal Tuesday, before it made the cut.",
+    copyright: "© 2026 Chef Nina. All rights reserved.",
+    books: [
+      { title: "Desserts", desc: "Twenty-four sweets that hold up to guests — from five-minute mousse to a birthday cake you can actually frost.", alt: "Desserts ebook cover", img: "assets/book-desserts.png", price: "$14", url: "https://chefnina.gumroad.com/l/desserts" },
+      { title: "Diet-Friendly", desc: "Lighter dinners that still taste like dinner. Portioned, calorie-noted, and built from one weekly shop.", alt: "Diet-Friendly ebook cover", img: "assets/book-diet.png", price: "$14", url: "https://chefnina.gumroad.com/l/diet-friendly" },
+      { title: "High-Protein", desc: "Thirty plates over 35g of protein, most on the table in under half an hour. Meat and meat-free options throughout.", alt: "High-Protein ebook cover", img: "assets/book-protein.png", price: "$14", url: "https://chefnina.gumroad.com/l/high-protein" }
+    ],
+    bundlePrice: "$29", bundleWas: "$42"
+  },
+  pt: {
+    navBooks: "Ebooks", navAbout: "Sobre", kicker: "Ebooks de receitas",
+    tagline: "Magia de restaurante, simples no dia a dia.",
+    heroSub: "Receitas testadas à mão que transformam ingredientes do dia a dia em algo que vale sentar à mesa. Sem equipamento chique, sem listas de compras enormes.",
+    cta: "Quero o ebook",
+    booksTitle: "Escolha a sua cozinha", booksSub: "Três ebooks, cada um pensado para uma semana diferente.",
+    buy: "Comprar",
+    badge: "30% off", bundleTitle: "Os três livros, um só pacote",
+    bundleBody: "Sobremesas, Dieta e Alto Proteína juntos — todas as receitas, todas as listas de compras, um único download.",
+    bundleCta: "Quero o pacote",
+    aboutTitle: "Oi, eu sou a Nina",
+    aboutBody: "Trabalhei doze anos em cozinhas de restaurante e depois passei alguns ensinando amigos a conseguir o mesmo sabor em casa, com uma frigideira e metade do tempo.",
+    aboutBody2: "Toda receita destes livros foi feita numa cozinha comum, numa terça-feira comum, antes de entrar no livro.",
+    copyright: "© 2026 Chef Nina. Todos os direitos reservados.",
+    books: [
+      { title: "Sobremesas", desc: "Vinte e quatro doces que impressionam visita — do mousse de cinco minutos ao bolo de aniversário que você consegue rechear.", alt: "Capa do ebook Sobremesas", img: "assets/book-desserts.png", price: "R$69", url: "https://chefnina.gumroad.com/l/desserts" },
+      { title: "Dieta", desc: "Jantares mais leves que ainda têm gosto de jantar. Porcionados, com calorias anotadas e uma única compra semanal.", alt: "Capa do ebook Dieta", img: "assets/book-diet.png", price: "R$69", url: "https://chefnina.gumroad.com/l/diet-friendly" },
+      { title: "Alto Proteína", desc: "Trinta pratos com mais de 35g de proteína, a maioria prontos em menos de meia hora. Com opções com e sem carne.", alt: "Capa do ebook Alto Proteína", img: "assets/book-protein.png", price: "R$69", url: "https://chefnina.gumroad.com/l/high-protein" }
+    ],
+    bundlePrice: "R$149", bundleWas: "R$207"
+  }
+};
+
+function render(lang) {
+  const t = COPY[lang];
+
+  document.querySelectorAll('[data-t]').forEach(el => {
+    el.textContent = t[el.dataset.t];
+  });
+
+  document.getElementById('bundle-price').textContent = t.bundlePrice;
+  document.getElementById('bundle-was').textContent = t.bundleWas;
+
+  const grid = document.getElementById('books-grid');
+  grid.innerHTML = t.books.map(b => `
+    <article class="card">
+      <img src="${b.img}" alt="${b.alt}" class="cover">
+      <h3>${b.title}</h3>
+      <p class="desc">${b.desc}</p>
+      <div class="card-footer">
+        <span class="price">${b.price}</span>
+        <a href="${b.url}" target="_blank" rel="noopener" class="btn btn-small">${t.buy}</a>
+      </div>
+    </article>
+  `).join('');
+
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+}
+
+function setLang(lang) {
+  try { localStorage.setItem('chefnina-lang', lang); } catch (e) {}
+  render(lang);
+}
+
+let saved = null;
+try { saved = localStorage.getItem('chefnina-lang'); } catch (e) {}
+const nav = (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+render(saved === 'pt' || saved === 'en' ? saved : nav);
+</script>
+
+</body>
+</html>
