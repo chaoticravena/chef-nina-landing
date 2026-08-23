@@ -65,7 +65,7 @@
         <span class="price-now" id="bundle-price"></span>
         <span class="price-was" id="bundle-was"></span>
       </div>
-      <a href="https://chefnina.gumroad.com/l/bundle" target="_blank" rel="noopener" class="btn" data-t="bundleCta"></a>
+      <a href="#" id="bundle-cta" target="_blank" rel="noopener" class="btn" data-t="bundleCta"></a>
     </div>
   </div>
 </section>
@@ -117,7 +117,7 @@ const COPY = {
       { title: "Diet-Friendly", desc: "Lighter dinners that still taste like dinner. Portioned, calorie-noted, and built from one weekly shop.", alt: "Diet-Friendly ebook cover", img: "assets/book-diet.png", price: "$14", url: "https://chefnina.gumroad.com/l/diet-friendly" },
       { title: "High-Protein", desc: "Thirty plates over 35g of protein, most on the table in under half an hour. Meat and meat-free options throughout.", alt: "High-Protein ebook cover", img: "assets/book-protein.png", price: "$14", url: "https://chefnina.gumroad.com/l/high-protein" }
     ],
-    bundlePrice: "$29", bundleWas: "$42"
+    bundlePrice: "$29", bundleWas: "$42", bundleUrl: "https://chefnina.gumroad.com/l/bundle"
   },
   pt: {
     navBooks: "Ebooks", navAbout: "Sobre", kicker: "Ebooks de receitas",
@@ -134,11 +134,11 @@ const COPY = {
     aboutBody2: "Toda receita destes livros foi feita numa cozinha comum, numa terça-feira comum, antes de entrar no livro.",
     copyright: "© 2026 Chef Nina. Todos os direitos reservados.",
     books: [
-      { title: "Sobremesas", desc: "Vinte e quatro doces que impressionam visita — do mousse de cinco minutos ao bolo de aniversário que você consegue rechear.", alt: "Capa do ebook Sobremesas", img: "assets/book-desserts.png", price: "R$69", url: "https://chefnina.gumroad.com/l/desserts" },
-      { title: "Dieta", desc: "Jantares mais leves que ainda têm gosto de jantar. Porcionados, com calorias anotadas e uma única compra semanal.", alt: "Capa do ebook Dieta", img: "assets/book-diet.png", price: "R$69", url: "https://chefnina.gumroad.com/l/diet-friendly" },
-      { title: "Alto Proteína", desc: "Trinta pratos com mais de 35g de proteína, a maioria prontos em menos de meia hora. Com opções com e sem carne.", alt: "Capa do ebook Alto Proteína", img: "assets/book-protein.png", price: "R$69", url: "https://chefnina.gumroad.com/l/high-protein" }
+      { title: "Sobremesas", desc: "Vinte e quatro doces que impressionam visita — do mousse de cinco minutos ao bolo de aniversário que você consegue rechear.", alt: "Capa do ebook Sobremesas", img: "assets/book-desserts.png", price: "R$69", url: "PT_PAYMENT_LINK_DESSERTS" },
+      { title: "Dieta", desc: "Jantares mais leves que ainda têm gosto de jantar. Porcionados, com calorias anotadas e uma única compra semanal.", alt: "Capa do ebook Dieta", img: "assets/book-diet.png", price: "R$69", url: "PT_PAYMENT_LINK_DIET_FRIENDLY" },
+      { title: "Alto Proteína", desc: "Trinta pratos com mais de 35g de proteína, a maioria prontos em menos de meia hora. Com opções com e sem carne.", alt: "Capa do ebook Alto Proteína", img: "assets/book-protein.png", price: "R$69", url: "PT_PAYMENT_LINK_HIGH_PROTEIN" }
     ],
-    bundlePrice: "R$149", bundleWas: "R$207"
+    bundlePrice: "R$149", bundleWas: "R$207", bundleUrl: "PT_PAYMENT_LINK_BUNDLE"
   }
 };
 
@@ -151,6 +151,7 @@ function render(lang) {
 
   document.getElementById('bundle-price').textContent = t.bundlePrice;
   document.getElementById('bundle-was').textContent = t.bundleWas;
+  document.getElementById('bundle-cta').href = t.bundleUrl;
 
   const grid = document.getElementById('books-grid');
   grid.innerHTML = t.books.map(b => `
@@ -177,8 +178,7 @@ function setLang(lang) {
 
 let saved = null;
 try { saved = localStorage.getItem('chefnina-lang'); } catch (e) {}
-const nav = (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
-render(saved === 'pt' || saved === 'en' ? saved : nav);
+render(saved === 'pt' || saved === 'en' ? saved : 'en');
 </script>
 
 </body>

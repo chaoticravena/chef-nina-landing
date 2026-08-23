@@ -13,4 +13,8 @@ Faltam (o próprio design também não tinha — precisa gerar/subir):
 - doodle-herb.png
 - doodle-pepper.png
 
-Links de compra já são os reais do design (`chefnina.gumroad.com/l/desserts`, `/diet-friendly`, `/high-protein`, `/bundle`) — confirme se esses produtos existem no Gumroad antes de publicar.
+Links de pagamento isolados por idioma em index.html:
+- EN → Gumroad (já reais: `chefnina.gumroad.com/l/desserts`, `/diet-friendly`, `/high-protein`, `/bundle`). Confirme se os produtos existem antes de publicar.
+- PT → placeholders `PT_PAYMENT_LINK_*` (desserts, diet_friendly, high_protein, bundle). Troque pelos links do processador escolhido pro público BR (Hotmart/Kiwify/Eduzz, com Pix/boleto).
+
+Idioma padrão da página é EN (prioridade pedida); PT fica atrás do toggle e lembra a escolha via localStorage.
